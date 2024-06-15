@@ -41,8 +41,18 @@ namespace Recall
 
             //Debug.WriteLine(chatCompletion);
 
+            try
+            {
+                File.Delete(screenshot.Path);
+            }
+
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+            }
+
             Analysis analysis = new Analysis
-           {
+            {
                 Model = model,
                 Prompt = prompt,
                 Created = DateTime.Now,
